@@ -11,7 +11,7 @@ function App() {
     <div>
       <Router />
     </div>
-  );
+  )
   // return (
   //   <>
   //     <div>
