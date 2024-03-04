@@ -8,8 +8,7 @@
     "build": "tsc && vite build",
     "lint": "tsc && eslint . --ext .js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,tsx,ts,js,json,md}\"",
-    "preview": "vite preview",
-    "prepare": "husky"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
