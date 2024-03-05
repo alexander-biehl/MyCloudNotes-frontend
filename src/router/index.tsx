@@ -8,7 +8,7 @@ export default function Router() {
     {
       path: '/',
       element: <Home />,
-      errorElement: <ErrorPage />
+      errorElement: <ErrorPage />,
     },
   ])
 }
