@@ -15,11 +15,12 @@ export default function Route() {
           errorElement: <ErrorPage />,
           children: [
             {
-              index: true, element: <Home />
-            }
-          ]
-        }
-      ]
+              index: true,
+              element: <Home />,
+            },
+          ],
+        },
+      ],
     },
   ])
 }
