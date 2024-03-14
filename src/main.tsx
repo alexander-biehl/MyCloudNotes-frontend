@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 // import './index.css'
 // import './assets/styles/sakura.css'
-import './assets/styles/material-theme/css/theme.css';
+import './assets/styles/material-theme/css/theme.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
