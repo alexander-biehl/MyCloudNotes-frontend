@@ -1,5 +1,5 @@
-import { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from 'axios'
 
 export const axiosBaseOptions: AxiosRequestConfig = {
-    baseURL: import.meta.env.BASE_URL as string
+  baseURL: import.meta.env.BASE_URL as string,
 }
