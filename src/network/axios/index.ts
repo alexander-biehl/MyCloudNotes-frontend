@@ -3,7 +3,14 @@ import axios from 'axios'
 
 import { axiosBaseOptions } from './axios-setup'
 
-class MyAxios {
+export interface ApiContract {
+  get<T>(url: string, data?: object): Promise<T>
+  post<T>(url: string, data?: object, params?: object): Promise<T>
+  put<T>(url: string, data?: object, params?: object): Promise<T>
+  delete<T>(url: string, data?: object): Promise<T>
+}
+
+class MyAxios implements ApiContract {
   private readonly axiosInstance: AxiosInstance
   constructor(options: AxiosRequestConfig) {
     this.axiosInstance = axios.create(options)

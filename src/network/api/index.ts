@@ -1,4 +1,5 @@
-// import { Note } from "../../types";
+// import { Note } from '../../types'
+// import { request } from '../axios'
 
 const baseURL: string = import.meta.env.BASE_URL
 
