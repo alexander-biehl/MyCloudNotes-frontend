@@ -1,5 +1,5 @@
 import { request, ApiContract } from '../../axios'
-import { Note } from '../../../types'
+import type { Note } from '../../../types'
 
 enum APIs {
   GET_NOTES = '/notes',

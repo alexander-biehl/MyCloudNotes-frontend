@@ -1,7 +1,7 @@
 import { useLoaderData } from 'react-router-dom'
 import notesService from '../../network/api/service/NotesService'
-import { Note } from '../../types'
-import { NotesResponse } from '../../network/api/types'
+import type { Note } from '../../types'
+import type { NotesResponse } from '../../network/api/types'
 
 export async function loader() {
   const notes = notesService.getNotes()
@@ -16,7 +16,7 @@ export default function Home() {
       <div>Hello, World!</div>
       <ul>
         {notes.map((note: Note) => {
-          return <li key={note.id}>{note.content}</li>
+          return <li key={note.id}>{note.title}</li>
         })}
       </ul>
     </>
