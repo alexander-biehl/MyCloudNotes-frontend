@@ -1,4 +1,5 @@
-import { request, ApiContract } from '../../axios'
+import { request } from '../../axios'
+import type { ApiContract } from '../../axios'
 import type { Note } from '../../../types'
 
 enum APIs {
