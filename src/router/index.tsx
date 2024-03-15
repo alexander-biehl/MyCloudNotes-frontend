@@ -1,6 +1,6 @@
 import { useRoutes } from 'react-router-dom'
 
-import Home from '../views/home'
+import Home, { loader as notesListLoader } from '../views/home'
 import ErrorPage from '../views/error'
 import Root from '../views/root'
 
@@ -16,6 +16,7 @@ export default function Route() {
           children: [
             {
               index: true,
+              loader: notesListLoader,
               element: <Home />,
             },
           ],
