@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            loader: notesListLoader,
+            loader: notesListLoader as LoaderFunction,
             element: <Home />,
           },
           {
