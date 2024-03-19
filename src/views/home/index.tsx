@@ -2,6 +2,7 @@ import { LoaderFunction, NavLink, useLoaderData } from 'react-router-dom'
 import notesService from '../../network/api/service/NotesService'
 import type { Note } from '../../types'
 import type { NotesResponse } from '../../network/api/types'
+import Paths from '../../router/paths'
 
 export const loader: LoaderFunction = async () => {
   const notes = await notesService.getNotes()
@@ -18,7 +19,7 @@ export default function Home() {
         {notes.map((note: Note) => {
           return (
             <li key={note.id}>
-              <NavLink to={`notes/${note.id}`}>{note.title}</NavLink>
+              <NavLink to={Paths.noteDetail.replace(':noteId', `${note.id}`)}>{note.title}</NavLink>
             </li>
           )
         })}
