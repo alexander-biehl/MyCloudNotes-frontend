@@ -36,15 +36,17 @@ class MyAxios implements ApiContract {
     this.axiosInstance.interceptors.response.use(
       (response) => {
         const { data } = response
-        console.log(`data`, data)
-        if (data.rsCode !== 0) {
-          alert(`${data.rsCause}`)
-          return Promise.reject(data.data)
-        }
+        console.log(`response: ${JSON.stringify(response)}`)
+        console.log(`data: ${JSON.stringify(data)}`)
+        // if (data.rsCode !== 0) {
+        //   alert(`${data.rsCause}`)
+        //   alert(`data.rsCode: ${data.rsCode}`);
+        //   return Promise.reject(data.data)
+        // }
         if (data instanceof Blob) {
           return response
         } else {
-          return data.data
+          return data
         }
       },
       (error: AxiosError) => {

@@ -4,7 +4,7 @@ import type { Note } from '../../types'
 import type { NotesResponse } from '../../network/api/types'
 
 export async function loader() {
-  const notes = notesService.getNotes()
+  const notes = await notesService.getNotes()
   return { notes }
 }
 

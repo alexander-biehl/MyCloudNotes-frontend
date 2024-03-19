@@ -14,14 +14,7 @@ class NotesService {
   }
 
   async getNotes(): Promise<Note[]> {
-    let notes: Note[]
-    try {
-      notes = await this.api.get<Note[]>(APIs.GET_NOTES)
-    } catch (ex) {
-      console.log(`ERROR: issue calling getNotes: ${ex}`)
-      notes = []
-    }
-    return notes
+    return await this.api.get<Note[]>(APIs.GET_NOTES)
   }
 }
 
