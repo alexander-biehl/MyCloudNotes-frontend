@@ -4,6 +4,7 @@ import type { Note } from '../../../types'
 
 enum APIs {
   GET_NOTES = '/notes',
+  GET_NOTE_BY_ID = '/notes/:id',
 }
 
 class NotesService {
@@ -15,6 +16,10 @@ class NotesService {
 
   async getNotes(): Promise<Note[]> {
     return await this.api.get<Note[]>(APIs.GET_NOTES)
+  }
+
+  async getNoteById(id: string): Promise<Note> {
+    return await this.api.get<Note>(APIs.GET_NOTE_BY_ID.replace(':id', id))
   }
 }
 

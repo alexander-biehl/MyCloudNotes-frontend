@@ -22,6 +22,7 @@ export default ({ command, mode }: ConfigEnv) => {
         '@assets': resolve(__dirname, './src/assets'),
         '@types': resolve(__dirname, './src/types'),
         '@components': resolve(__dirname, './src/components'),
+        '@network': resolve(__dirname, './src/network'),
       },
     },
     server: {
