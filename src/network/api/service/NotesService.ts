@@ -23,15 +23,15 @@ class NotesService {
   }
 
   async createNote(note: Note): Promise<Note> {
-    return await this.api.post<Note>(APIs.NOTES, note);
+    return await this.api.post<Note>(APIs.NOTES, note)
   }
 
   async updateNote(note: Note): Promise<Note> {
-    return await this.api.put<Note>(APIs.NOTE_BY_ID.replace(':id', `${note.id}`), note);
+    return await this.api.put<Note>(APIs.NOTE_BY_ID.replace(':id', `${note.id}`), note)
   }
 
   async deleteNote(id: string): Promise<boolean> {
-    return await this.api.delete<boolean>(APIs.NOTE_BY_ID.replace(':id', id));
+    return await this.api.delete<boolean>(APIs.NOTE_BY_ID.replace(':id', id))
   }
 }
 
