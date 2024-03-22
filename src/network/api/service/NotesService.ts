@@ -3,8 +3,8 @@ import type { ApiContract } from '../../axios'
 import type { Note } from '../../../types'
 
 enum APIs {
-  GET_NOTES = '/notes',
-  GET_NOTE_BY_ID = '/notes/:id',
+  NOTES = '/notes',
+  NOTE_BY_ID = '/notes/:id',
 }
 
 class NotesService {
@@ -15,11 +15,23 @@ class NotesService {
   }
 
   async getNotes(): Promise<Note[]> {
-    return await this.api.get<Note[]>(APIs.GET_NOTES)
+    return await this.api.get<Note[]>(APIs.NOTES)
   }
 
   async getNoteById(id: string): Promise<Note> {
-    return await this.api.get<Note>(APIs.GET_NOTE_BY_ID.replace(':id', id))
+    return await this.api.get<Note>(APIs.NOTE_BY_ID.replace(':id', id))
+  }
+
+  async createNote(note: Note): Promise<Note> {
+    return await this.api.post<Note>(APIs.NOTES, note);
+  }
+
+  async updateNote(note: Note): Promise<Note> {
+    return await this.api.put<Note>(APIs.NOTE_BY_ID.replace(':id', `${note.id}`), note);
+  }
+
+  async deleteNote(id: string): Promise<boolean> {
+    return await this.api.delete<boolean>(APIs.NOTE_BY_ID.replace(':id', id));
   }
 }
 
