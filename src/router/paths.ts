@@ -1,4 +1,5 @@
 const Paths = {
+  noteList: 'notes',
   noteDetail: 'notes/:noteId',
 }
 
