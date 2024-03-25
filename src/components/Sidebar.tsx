@@ -141,7 +141,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   )
 }
 
-export default function SimpleSidebar() {
+// export default function SimpleSidebar({ children }) {
+const SimpleSidebar = ({ children }: { children: React.ReactNode }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
@@ -161,8 +162,9 @@ export default function SimpleSidebar() {
       {/* mobilenav */}
       <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {/* Content */}
+        {children}
       </Box>
     </Box>
   )
 }
+export default SimpleSidebar

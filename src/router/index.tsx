@@ -1,7 +1,7 @@
 import { LoaderFunction, createBrowserRouter } from 'react-router-dom'
 
 import Home from '../views/home'
-import notesListLoader from '../views/home/loader'
+// import notesListLoader from '../views/home/loader'
 import Note from '../views/note'
 import noteLoader from '../views/note/loader'
 import ErrorPage from '../views/error'
@@ -19,7 +19,6 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            loader: notesListLoader as LoaderFunction,
             element: <Home />,
           },
           {

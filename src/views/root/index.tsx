@@ -6,10 +6,11 @@ export default function Root() {
 
   return (
     <>
-      <SimpleSideBar />
-      <div id="detail">
-        <Outlet />
-      </div>
+      <SimpleSideBar>
+        <div id="detail">
+          <Outlet />
+        </div>
+      </SimpleSideBar>
     </>
   )
   // return (
