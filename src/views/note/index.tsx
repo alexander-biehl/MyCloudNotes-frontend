@@ -8,21 +8,17 @@ export default function Note() {
 
   return (
     <>
-      <Card size='lg' height='95vh'>
+      <Card size="lg" height="95vh">
         <CardHeader>
-          <Heading as='h1'>
-            {note.title}
-          </Heading>
+          <Heading as="h1">{note.title}</Heading>
         </CardHeader>
-        <CardBody>
-          {note.content}
-        </CardBody>
+        <CardBody>{note.content}</CardBody>
         <CardFooter>
           <ButtonGroup>
-            <Button variant='solid' colorScheme='teal'>
+            <Button variant="solid" colorScheme="teal">
               Edit
             </Button>
-            <Button variant='outline' colorScheme='red'>
+            <Button variant="outline" colorScheme="red">
               Delete
             </Button>
           </ButtonGroup>
