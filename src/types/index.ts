@@ -13,3 +13,8 @@ export interface Note {
 export interface LoaderArgs extends ActionFunctionArgs {
   params: Params<ParamParseKey<typeof Paths.noteDetail>>
 }
+
+export type NoteParams = {
+  title: string
+  content: string
+}
