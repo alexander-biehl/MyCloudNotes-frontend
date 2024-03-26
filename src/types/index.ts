@@ -18,3 +18,7 @@ export type NoteParams = {
   title: string
   content: string
 }
+
+export interface ActionParams extends ActionFunctionArgs {
+  params: Params<ParamParseKey<typeof Paths.noteDetail>>
+}

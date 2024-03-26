@@ -1,8 +1,9 @@
 import { redirect } from 'react-router-dom'
 import notesService from '../../../network/api/service/NotesService'
 import { Note } from '../../../types'
+import type { ActionFunction } from 'react-router-dom'
 
-const createAction = async ({ request }: { request: Request }) => {
+const createAction: ActionFunction = async ({ request }: { request: Request }) => {
   const formData: FormData = await request.formData()
   const toCreate: Note = {} as Note
   formData.forEach((value: FormDataEntryValue, key: string) => {

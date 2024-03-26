@@ -1,8 +1,8 @@
-import { redirect } from 'react-router-dom'
+import { ActionFunction, redirect } from 'react-router-dom'
 import notesService from '../../../network/api/service/NotesService'
 import { Note } from '../../../types'
 
-const editAction = async ({ request }: { request: Request }) => {
+const editAction: ActionFunction = async ({ request }: { request: Request }) => {
   const formData: FormData = await request.formData()
   // the {} as Note is necessary to empty-init all the fields
   const note: Note = {} as Note
