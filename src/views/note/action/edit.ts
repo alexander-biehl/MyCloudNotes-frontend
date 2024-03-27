@@ -2,7 +2,7 @@ import { ActionFunction, redirect } from 'react-router-dom'
 import notesService from '../../../network/api/service/NotesService'
 import { Note } from '../../../types'
 
-const editAction: ActionFunction = async ({ request }: { request: Request }) => {
+const editNoteAction: ActionFunction = async ({ request }: { request: Request }) => {
   const formData: FormData = await request.formData()
   // the {} as Note is necessary to empty-init all the fields
   const note: Note = {} as Note
@@ -15,4 +15,4 @@ const editAction: ActionFunction = async ({ request }: { request: Request }) => 
   const updatedNote = await notesService.updateNote(note)
   return redirect(`/notes/${updatedNote.id}`)
 }
-export default editAction
+export default editNoteAction

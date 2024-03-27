@@ -3,7 +3,7 @@ import notesService from '../../../network/api/service/NotesService'
 import { Note } from '../../../types'
 import type { ActionFunction } from 'react-router-dom'
 
-const createAction: ActionFunction = async ({ request }: { request: Request }) => {
+const createNoteAction: ActionFunction = async ({ request }: { request: Request }) => {
   const formData: FormData = await request.formData()
   const toCreate: Note = {} as Note
   formData.forEach((value: FormDataEntryValue, key: string) => {
@@ -18,4 +18,4 @@ const createAction: ActionFunction = async ({ request }: { request: Request }) =
   }
   return redirect(`/notes/${created.id}`)
 }
-export default createAction
+export default createNoteAction
