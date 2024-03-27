@@ -10,12 +10,14 @@ import {
   FormLabel,
   Input,
   Textarea,
+  VisuallyHiddenInput,
 } from '@chakra-ui/react'
-import { Form, useLoaderData } from 'react-router-dom'
+import { Form, useLoaderData, useNavigate } from 'react-router-dom'
 import { NoteResponse } from '../../network/api/types'
 
 export default function EditNote() {
   const { note } = useLoaderData() as NoteResponse
+  const navigate = useNavigate()
 
   return (
     <>
@@ -25,22 +27,23 @@ export default function EditNote() {
             <Heading as="h1">
               <FormControl>
                 <FormLabel htmlFor="title">Title</FormLabel>
-                <Input id="title" placeholder="Title" type="text" defaultValue={note.title} />
+                <Input id="title" name="title" placeholder="Title" type="text" defaultValue={note.title} />
               </FormControl>
             </Heading>
           </CardHeader>
           <CardBody>
             <FormControl>
               <FormLabel htmlFor="content">Content</FormLabel>
-              <Textarea id="content" placeholder="Lorem Ipsum" defaultValue={note.content} />
+              <Textarea id="content" name="content" placeholder="Lorem Ipsum" defaultValue={note.content} />
             </FormControl>
+            <VisuallyHiddenInput id="id" name="id" defaultValue={note.id} />
           </CardBody>
           <CardFooter>
             <ButtonGroup>
               <Button variant="solid" colorScheme="teal" type="submit">
                 Save
               </Button>
-              <Button variant="outline" colorScheme="red" type="button">
+              <Button variant="outline" colorScheme="red" type="button" onClick={() => navigate(-1)}>
                 Cancel
               </Button>
             </ButtonGroup>
