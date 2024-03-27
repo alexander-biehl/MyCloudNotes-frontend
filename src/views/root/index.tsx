@@ -1,9 +1,11 @@
-import { Outlet /*useNavigation*/ } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import SimpleSideBar from '../../components/Sidebar'
 
+/**
+ *
+ * @returns Root element, containing the sidebar and the Router Outlet
+ */
 export default function Root() {
-  // const navigation = useNavigation();
-
   return (
     <>
       <SimpleSideBar>

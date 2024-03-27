@@ -1,9 +1,14 @@
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 
+/**
+ *
+ * @returns Error page component displaying the statusText, if any
+ */
 export default function ErrorPage() {
   const error: unknown = useRouteError()
   console.log(error)
 
+  // TODO make this nicer
   return (
     <div id="error-page">
       <h1>Oops!</h1>

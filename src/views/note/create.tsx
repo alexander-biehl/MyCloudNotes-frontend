@@ -1,6 +1,10 @@
 import { Button, ButtonGroup, FormControl, FormLabel, Input, Textarea } from '@chakra-ui/react'
 import { Form } from 'react-router-dom'
 
+/**
+ *
+ * @returns Form for creating new note records
+ */
 export default function CreateNote() {
   return (
     <>

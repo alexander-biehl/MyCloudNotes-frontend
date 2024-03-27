@@ -26,7 +26,8 @@ export default function NotesList() {
 
   return (
     <>
-      <SimpleGrid minChildWidth="100px" spacing="20px">
+      {/* Simple grid of notes */}
+      <SimpleGrid minChildWidth="100px" spacing="20px" id="notes-grid">
         {notes.map((note) => {
           return (
             <>
@@ -44,6 +45,7 @@ export default function NotesList() {
           )
         })}
       </SimpleGrid>
+      {/* Floating Action button for new Note */}
       <Flex justifyContent="end" alignItems="end">
         <Button
           onClick={onOpen}
@@ -65,6 +67,7 @@ export default function NotesList() {
         </Button>
       </Flex>
 
+      {/* Modal to create a new note, hidden by default */}
       <Modal isOpen={isOpen} onClose={onClose} size={'2xl'}>
         <ModalOverlay />
         <ModalContent>

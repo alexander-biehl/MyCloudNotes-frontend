@@ -13,6 +13,9 @@ import destroyNoteAction from '../views/note/action/destroy'
 import EditNote from '../views/note/edit'
 import editNoteAction from '../views/note/action/edit'
 
+/**
+ * Router for the application
+ */
 const router = createBrowserRouter([
   {
     path: '/',

@@ -15,6 +15,10 @@ import {
 import { Form, useLoaderData, useNavigate } from 'react-router-dom'
 import { NoteResponse } from '../../network/api/types'
 
+/**
+ *
+ * @returns Form for Editing a note record
+ */
 export default function EditNote() {
   const { note } = useLoaderData() as NoteResponse
   const navigate = useNavigate()

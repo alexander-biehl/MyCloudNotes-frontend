@@ -3,6 +3,10 @@ import type { Note } from '../../types'
 import type { NoteResponse } from '../../network/api/types'
 import { Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Heading } from '@chakra-ui/react'
 
+/**
+ *
+ * @returns Note Detail component
+ */
 export default function Note() {
   const { note } = useLoaderData() as NoteResponse
 

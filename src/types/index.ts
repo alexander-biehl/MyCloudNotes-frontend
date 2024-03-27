@@ -7,18 +7,21 @@ export interface Note {
   content?: string
 }
 
-/**
- * For use when defining React Router loader functions
- */
-export interface LoaderArgs extends ActionFunctionArgs {
-  params: Params<ParamParseKey<typeof Paths.noteDetail>>
-}
-
 export type NoteParams = {
   title: string
   content: string
 }
 
+/**
+ * Type definition for Action function params
+ */
 export interface ActionParams extends ActionFunctionArgs {
+  params: Params<ParamParseKey<typeof Paths.noteDetail>>
+}
+
+/**
+ * For use when defining React Router loader functions
+ */
+export interface LoaderArgs extends ActionFunctionArgs {
   params: Params<ParamParseKey<typeof Paths.noteDetail>>
 }

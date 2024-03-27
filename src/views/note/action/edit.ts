@@ -12,7 +12,9 @@ const editNoteAction: ActionFunction = async ({ request }: { request: Request })
     note[key as keyof Note] = value as string
   })
 
+  // call on notesService to update and return the updated note
   const updatedNote = await notesService.updateNote(note)
+  // redirect to the note detail page
   return redirect(`/notes/${updatedNote.id}`)
 }
 export default editNoteAction
