@@ -9,6 +9,12 @@ const Paths = {
   noteCreate: '/notes/create',
   noteDestroy: '/notes/:noteId/destroy',
   noteEdit: '/notes/:noteId/edit',
+
+  // user endpoings
+  userList: '/users',
+  userDetail: '/users/:userId',
+  userRegister: '/users/register',
+  userLogin: '/users/login'
 }
 
 export default Paths
