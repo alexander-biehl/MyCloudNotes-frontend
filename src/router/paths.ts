@@ -4,6 +4,8 @@
  * @param :noteId {string | empty}
  */
 const Paths = {
+  home: '/',
+  // notes endpoints
   noteList: '/notes',
   noteDetail: '/notes/:noteId',
   noteCreate: '/notes/create',
@@ -14,7 +16,7 @@ const Paths = {
   userList: '/users',
   userDetail: '/users/:userId',
   userRegister: '/users/register',
-  userLogin: '/users/login'
+  userLogin: '/users/login',
 }
 
 export default Paths

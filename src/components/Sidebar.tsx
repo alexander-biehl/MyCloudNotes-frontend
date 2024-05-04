@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react'
 import {
   FiHome,
+  FiUser,
   // FiTrendingUp,
   // FiCompass,
   // FiStar,
@@ -29,6 +30,7 @@ import {
 import { IconType } from 'react-icons'
 import { ReactText } from 'react'
 import { NavLink } from 'react-router-dom'
+import Paths from '../router/paths'
 
 interface LinkItemProps {
   name: string
@@ -43,8 +45,9 @@ interface SidebarProps extends BoxProps {
 
 // TODO need to find a more dynamic way to do this
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome, to: `/` },
-  { name: 'Notes', icon: FiBookOpen, to: `/notes` },
+  { name: 'Home', icon: FiHome, to: Paths.home },
+  { name: 'Notes', icon: FiBookOpen, to: Paths.noteList },
+  { name: 'Users', icon: FiUser, to: Paths.userList },
   // { name: 'Trending', icon: FiTrendingUp },
   // { name: 'Explore', icon: FiCompass },
   // { name: 'Favourites', icon: FiStar },

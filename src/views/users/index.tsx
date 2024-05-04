@@ -1,0 +1,54 @@
+import { Text, Flex, Stack, Button, Spacer } from '@chakra-ui/react'
+
+export default function UserList() {
+  // TODO need to check if user is logged in
+
+  return (
+    <>
+      <Text>Welcome to the Users!</Text>
+      <Flex justifyContent="center" align="end" height={'25vh'}>
+        <Stack w={'15%'} h={'90%'}>
+          <Button
+            flex={1}
+            // style={{ position: 'fixed', bottom: '40px' }}
+            px={4}
+            fontSize={'lg'}
+            rounded={'md'}
+            bg={'blue.400'}
+            color={'white'}
+            variant={'solid'}
+            boxShadow={'0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'}
+            _hover={{
+              bg: 'blue.500',
+            }}
+            _focus={{
+              bg: 'blue.500',
+            }}
+          >
+            Register
+          </Button>
+          <Spacer />
+          <Button
+            flex={1}
+            // style={{ position: 'fixed', bottom: '20px' }}
+            px={4}
+            variant={'outline'}
+            fontSize={'lg'}
+            rounded={'md'}
+            bg={'blue.400'}
+            color={'white'}
+            boxShadow={'0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'}
+            _hover={{
+              bg: 'blue.500',
+            }}
+            _focus={{
+              bg: 'blue.500',
+            }}
+          >
+            Login
+          </Button>
+        </Stack>
+      </Flex>
+    </>
+  )
+}

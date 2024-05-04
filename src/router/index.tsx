@@ -12,6 +12,7 @@ import Paths from './paths'
 import destroyNoteAction from '../views/note/action/destroy'
 import EditNote from '../views/note/edit'
 import editNoteAction from '../views/note/action/edit'
+import UserList from '../views/users'
 
 /**
  * Router for the application
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
           {
             path: Paths.noteDestroy,
             action: destroyNoteAction as ActionFunction,
+          },
+          {
+            path: Paths.userList,
+            element: <UserList />,
           },
         ],
       },
