@@ -7,6 +7,13 @@ export interface Note {
   content?: string
 }
 
+export type User = {
+  id?: string
+  username: string
+  password?: string
+  active?: boolean
+}
+
 export type NoteParams = {
   title: string
   content: string
