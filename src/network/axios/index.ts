@@ -20,6 +20,7 @@ class MyAxios implements ApiContract {
   private initInterceptors() {
     this.axiosInstance.interceptors.request.use(
       (config) => {
+        // TODO update this to use sessionStorage
         const token: string | null = localStorage.getItem('token')
         if (token) {
           config.headers['Authorization'] = `Bearer ${token}`
