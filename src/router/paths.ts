@@ -16,7 +16,7 @@ const Paths = {
   userList: '/users',
   userDetail: '/users/:userId',
   userRegister: '/users/register',
-  userLogin: '/users/login',
+  userLogin: '/auth/login',
 }
 
 export default Paths
