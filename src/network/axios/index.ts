@@ -102,13 +102,6 @@ class MyAxios implements ApiContract {
     return refreshToken;
   }
 
-  signIn<T>(username: string, password: string): Promise<T> {
-    return this.axiosInstance.post(Paths.userLogin, {
-      username: username,
-      password: password
-    })
-  }
-
   refreshToken<T>(): Promise<T> {
     return this.axiosInstance.post(Paths.refreshToken, {
       refreshToken: this.getLocalRefreshToken()

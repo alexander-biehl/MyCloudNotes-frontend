@@ -7,7 +7,6 @@ enum APIs {
   USER_BY_ID = '/users/:id',
   USER_BY_USERNAME = '/users/:username',
   REGISTER = '/users/register',
-  LOGIN = '/users/login',
 }
 
 class UserService {

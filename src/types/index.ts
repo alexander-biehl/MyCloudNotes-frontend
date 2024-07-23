@@ -41,3 +41,8 @@ export interface TokenRequestData {
   accessToken: string,
   refreshToken: string
 }
+
+export interface TokenResponse {
+  accessToken: string,
+  refreshToken: string
+}
