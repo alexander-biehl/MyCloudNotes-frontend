@@ -13,6 +13,9 @@ import destroyNoteAction from '../views/note/action/destroy'
 import EditNote from '../views/note/edit'
 import editNoteAction from '../views/note/action/edit'
 import UserList from '../views/users'
+import { RegisterUser, LoginUser } from '../views/users/form'
+import { registerUserAction } from '../views/users/action/register'
+import { loginUserAction } from '../views/users/action/login'
 
 /**
  * Router for the application
@@ -57,6 +60,16 @@ const router = createBrowserRouter([
           {
             path: Paths.userList,
             element: <UserList />,
+          },
+          {
+            path: Paths.userRegister,
+            element: <RegisterUser />,
+            action: registerUserAction as ActionFunction,
+          },
+          {
+            path: Paths.userLogin,
+            element: <LoginUser />,
+            action: loginUserAction as ActionFunction,
           },
         ],
       },

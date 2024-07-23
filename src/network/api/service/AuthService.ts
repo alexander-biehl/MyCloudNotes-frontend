@@ -14,7 +14,7 @@ class AuthService {
     this.api = request
   }
 
-  async login(username: string, password: string): Promise<TokenResponse> {
+  async login(username: string, password: string): Promise<boolean> {
     const tokenResponse: TokenResponse = await this.api.post<TokenResponse>(APIs.LOGIN, {
       username: username,
       password: password,
@@ -22,7 +22,7 @@ class AuthService {
     const { accessToken, refreshToken } = tokenResponse
     window.localStorage.setItem('accessToken', accessToken)
     window.localStorage.setItem('refreshToken', refreshToken)
-    return Promise.resolve(tokenResponse)
+    return Promise.resolve(true)
   }
 }
 
