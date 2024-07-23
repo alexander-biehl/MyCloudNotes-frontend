@@ -32,10 +32,6 @@ class UserService {
   async register(user: User): Promise<User> {
     return await this.api.post<User>(APIs.REGISTER, user)
   }
-
-  async login(user: User): Promise<User> {
-    return await this.api.post<User>(APIs.LOGIN, user)
-  }
 }
 
 const userService = new UserService(request)
