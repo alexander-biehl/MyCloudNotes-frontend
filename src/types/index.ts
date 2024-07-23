@@ -7,14 +7,14 @@ export interface Note {
   content?: string
 }
 
-export type User = {
+export interface User {
   id?: string
   username: string
   password?: string
   active?: boolean
 }
 
-export type NoteParams = {
+export interface NoteParams {
   title: string
   content: string
 }
@@ -33,11 +33,11 @@ export interface LoaderArgs extends ActionFunctionArgs {
   params: Params<ParamParseKey<typeof Paths.noteDetail>>
 }
 
-export type TokenRequest = {
+export interface TokenRequest {
   data: TokenRequestData
 }
 
-export type TokenRequestData = {
+export interface TokenRequestData {
   accessToken: string,
   refreshToken: string
 }
