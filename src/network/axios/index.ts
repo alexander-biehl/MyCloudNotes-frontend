@@ -22,9 +22,12 @@ class MyAxios implements ApiContract {
   private initInterceptors() {
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        const token: string = this.getLocalAccessToken()
-        if (token) {
-          config.headers['Authorization'] = `Bearer ${token}`
+        console.log(`config: ${JSON.stringify(config)}`)
+        if (config.url != Paths.userRegister && config.url != Paths.userLogin) {
+          const token: string = this.getLocalAccessToken()
+          if (token) {
+            config.headers['Authorization'] = `Bearer ${token}`
+          }
         }
         console.log(`Axios Config:`, config)
         return config

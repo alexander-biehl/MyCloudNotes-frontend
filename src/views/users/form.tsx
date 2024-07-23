@@ -7,7 +7,7 @@ import { Form } from 'react-router-dom'
 export const RegisterUser = () => {
   return (
     <>
-      <Form id="user-register" method="post" action="register">
+      <Form id="user-register" method="post">
         <FormControl>
           <FormLabel htmlFor="username">User name</FormLabel>
           <Input id="username" name="username" placeholder="abc123" type="text" />
@@ -33,7 +33,7 @@ export const RegisterUser = () => {
 export const LoginUser = () => {
   return (
     <>
-      <Form id="user-register" method="post" action="register">
+      <Form id="user-register" method="post">
         <FormControl>
           <FormLabel htmlFor="username">User name</FormLabel>
           <Input id="username" name="username" placeholder="abc123" type="text" />
