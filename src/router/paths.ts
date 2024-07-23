@@ -17,7 +17,7 @@ const Paths = {
   userDetail: '/users/:userId',
   userRegister: '/users/register',
   userLogin: '/auth/login',
-  refreshToken: '/auth/refreshtoken'
+  refreshToken: '/auth/refreshtoken',
 }
 
 export default Paths

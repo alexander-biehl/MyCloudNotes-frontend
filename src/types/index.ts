@@ -38,11 +38,11 @@ export interface TokenRequest {
 }
 
 export interface TokenRequestData {
-  accessToken: string,
+  accessToken: string
   refreshToken: string
 }
 
 export interface TokenResponse {
-  accessToken: string,
+  accessToken: string
   refreshToken: string
 }

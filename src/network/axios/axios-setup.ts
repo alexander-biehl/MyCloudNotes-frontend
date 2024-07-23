@@ -13,6 +13,6 @@ if (port) {
 export const axiosBaseOptions: AxiosRequestConfig = {
   baseURL: fullURL,
   headers: {
-    "Content-Type": "application/json"
-  }
+    'Content-Type': 'application/json',
+  },
 }

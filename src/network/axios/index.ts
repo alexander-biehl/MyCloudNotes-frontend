@@ -22,7 +22,7 @@ class MyAxios implements ApiContract {
   private initInterceptors() {
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        const token: string = this.getLocalAccessToken();
+        const token: string = this.getLocalAccessToken()
         if (token) {
           config.headers['Authorization'] = `Bearer ${token}`
         }
@@ -57,10 +57,10 @@ class MyAxios implements ApiContract {
 
             try {
               const rs: TokenRequest = await this.refreshToken()
-              const { accessToken, refreshToken } = rs.data;
-              window.localStorage.setItem("accessToken", accessToken)
-              window.localStorage.setItem("refreshToken", refreshToken)
-              this.axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`
+              const { accessToken, refreshToken } = rs.data
+              window.localStorage.setItem('accessToken', accessToken)
+              window.localStorage.setItem('refreshToken', refreshToken)
+              this.axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`
 
               return this.axiosInstance(originalConfig)
             } catch (_error: unknown) {
@@ -73,11 +73,11 @@ class MyAxios implements ApiContract {
           }
 
           if (error.response.status === 400) {
-            console.log("400 error")
+            console.log('400 error')
           } else if (error.response.status === 402) {
-            console.log("402 error")
+            console.log('402 error')
           } else if (error.response.status === 403) {
-            console.log("403 error")
+            console.log('403 error')
           }
         }
 
@@ -87,24 +87,24 @@ class MyAxios implements ApiContract {
   }
 
   private getLocalAccessToken(): string {
-    const accessToken = window.localStorage?.getItem("accessToken");
+    const accessToken = window.localStorage?.getItem('accessToken')
     if (accessToken == null) {
-      throw new Error("Access Token Not Set");
+      throw new Error('Access Token Not Set')
     }
-    return accessToken;
+    return accessToken
   }
 
   private getLocalRefreshToken(): string {
-    const refreshToken = window.localStorage.getItem("refreshToken");
+    const refreshToken = window.localStorage.getItem('refreshToken')
     if (refreshToken == null) {
-      throw new Error("Refresh Token Not Set");
+      throw new Error('Refresh Token Not Set')
     }
-    return refreshToken;
+    return refreshToken
   }
 
   refreshToken<T>(): Promise<T> {
     return this.axiosInstance.post(Paths.refreshToken, {
-      refreshToken: this.getLocalRefreshToken()
+      refreshToken: this.getLocalRefreshToken(),
     })
   }
 
