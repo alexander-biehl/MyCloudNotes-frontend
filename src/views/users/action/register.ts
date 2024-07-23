@@ -1,8 +1,8 @@
 import { redirect } from 'react-router-dom'
-// TODO create User type
 import type { ActionFunction } from 'react-router-dom'
 import userService from '../../../network/api/service/UserService'
 import { User } from '../../../types'
+import Paths from '../../../router/paths'
 
 export const registerUserAction: ActionFunction = async ({ request }: { request: Request }) => {
   // get the key:value formdata from the request
@@ -26,5 +26,5 @@ export const registerUserAction: ActionFunction = async ({ request }: { request:
     })
   }
   // otherwise redirect to home
-  return redirect(`/`)
+  return redirect(Paths.userLogin)
 }
