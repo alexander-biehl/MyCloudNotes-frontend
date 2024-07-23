@@ -1,7 +1,9 @@
-import type { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
+import { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 
 import { axiosBaseOptions } from './axios-setup'
+import Paths from '../../router/paths'
+import { TokenRequest } from '../../types'
 
 export interface ApiContract {
   get<T>(url: string, data?: object): Promise<T>
@@ -20,8 +22,7 @@ class MyAxios implements ApiContract {
   private initInterceptors() {
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        // TODO update this to use sessionStorage
-        const token: string | null = localStorage.getItem('token')
+        const token: string = this.getLocalAccessToken();
         if (token) {
           config.headers['Authorization'] = `Bearer ${token}`
         }
@@ -45,28 +46,73 @@ class MyAxios implements ApiContract {
           return data
         }
       },
-      (error: AxiosError) => {
+      async (error) => {
         console.log(`axios error`, error)
+        const originalConfig = error.config
 
-        if (error?.response) {
-          switch (error.response.status) {
-            case 400:
-              console.log(`400 error`)
-              break
-            case 401:
-              console.log(`401 error`)
-              break
-            case 404:
-              console.log('404 error')
-              break
-            default:
-              console.log(`Error ${error.response.status}`)
+        if (error.response) {
+          // If access token expired
+          if (error.response.status === 401 && !originalConfig._retry) {
+            originalConfig._retry = true
+
+            try {
+              const rs: TokenRequest = await this.refreshToken()
+              const { accessToken, refreshToken } = rs.data;
+              window.localStorage.setItem("accessToken", accessToken)
+              window.localStorage.setItem("refreshToken", refreshToken)
+              this.axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`
+
+              return this.axiosInstance(originalConfig)
+            } catch (_error: unknown) {
+              if (_error instanceof AxiosError && _error.response && _error.response.data) {
+                return Promise.reject(_error.response.data)
+              }
+
+              return Promise.reject(_error)
+            }
+          }
+
+          if (error.response.status === 400) {
+            console.log("400 error")
+          } else if (error.response.status === 402) {
+            console.log("402 error")
+          } else if (error.response.status === 403) {
+            console.log("403 error")
           }
         }
 
         return Promise.reject(error)
       },
     )
+  }
+
+  private getLocalAccessToken(): string {
+    const accessToken = window.localStorage?.getItem("accessToken");
+    if (accessToken == null) {
+      throw new Error("Access Token Not Set");
+    }
+    return accessToken;
+  }
+
+  private getLocalRefreshToken(): string {
+    const refreshToken = window.localStorage.getItem("refreshToken");
+    if (refreshToken == null) {
+      throw new Error("Refresh Token Not Set");
+    }
+    return refreshToken;
+  }
+
+  signIn<T>(username: string, password: string): Promise<T> {
+    return this.axiosInstance.post(Paths.userLogin, {
+      username: username,
+      password: password
+    })
+  }
+
+  refreshToken<T>(): Promise<T> {
+    return this.axiosInstance.post(Paths.refreshToken, {
+      refreshToken: this.getLocalRefreshToken()
+    })
   }
 
   get<T>(url: string, data?: object): Promise<T> {

@@ -32,3 +32,12 @@ export interface ActionParams extends ActionFunctionArgs {
 export interface LoaderArgs extends ActionFunctionArgs {
   params: Params<ParamParseKey<typeof Paths.noteDetail>>
 }
+
+export type TokenRequest = {
+  data: TokenRequestData
+}
+
+export type TokenRequestData = {
+  accessToken: string,
+  refreshToken: string
+}
