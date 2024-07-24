@@ -5,6 +5,7 @@
  */
 const Paths = {
   home: '/',
+  healthCheck: '/health-check',
   // notes endpoints
   noteList: '/notes',
   noteDetail: '/notes/:noteId',

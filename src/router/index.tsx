@@ -16,6 +16,8 @@ import UserList from '../views/users'
 import { RegisterUser, LoginUser } from '../views/users/form'
 import { registerUserAction } from '../views/users/action/register'
 import { loginUserAction } from '../views/users/action/login'
+import HealthCheck from '../views/healthCheck'
+import { default as healthLoader } from '../views/note/loader'
 
 /**
  * Router for the application
@@ -70,6 +72,11 @@ const router = createBrowserRouter([
             path: Paths.userLogin,
             element: <LoginUser />,
             action: loginUserAction as ActionFunction,
+          },
+          {
+            path: Paths.healthCheck,
+            element: <HealthCheck />,
+            loader: healthLoader as LoaderFunction,
           },
         ],
       },

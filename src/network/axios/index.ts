@@ -10,6 +10,7 @@ export interface ApiContract {
   post<T>(url: string, data?: object, params?: object): Promise<T>
   put<T>(url: string, data?: object, params?: object): Promise<T>
   delete<T>(url: string, data?: object): Promise<T>
+  healthCheck(): Promise<string>
 }
 
 class MyAxios implements ApiContract {
@@ -109,6 +110,10 @@ class MyAxios implements ApiContract {
     return this.axiosInstance.post(Paths.refreshToken, {
       refreshToken: this.getLocalRefreshToken(),
     })
+  }
+
+  healthCheck(): Promise<string> {
+    return this.axiosInstance.get(Paths.healthCheck, {})
   }
 
   get<T>(url: string, data?: object): Promise<T> {
