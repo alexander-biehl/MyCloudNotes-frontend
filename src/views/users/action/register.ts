@@ -13,10 +13,7 @@ export const registerUserAction: ActionFunction = async ({ request }: { request:
     username: formData.get('username') as string,
     password: formData.get('password') as string,
   }
-  // const toRegister = {} as User
-  // formData.forEach((value: FormDataEntryValue, key: string) => {
-  //   toRegister[key as keyof User] = value as string
-  // })
+
   const user: User = await userService.register(toRegister)
   // if no id or failure response, throw error
   if (!user.id) {
